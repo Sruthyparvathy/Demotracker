@@ -5,12 +5,13 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import Chart from "chart.js";
 import { Grid } from "@material-ui/core";
 import { UserContext } from './Context';
+
 Chart.plugins.unregister(ChartDataLabels);
 
 
 function Categorybarmn(props) {
-
-  const {monthval,yearval,year}=useContext(UserContext);
+  
+  const {monthval,yearval,year,transactionState,setTransactionState}=useContext(UserContext);
   const [Data, setData] = useState({labels:'',
                                      datasets:[ {
                                       data: '',
@@ -45,8 +46,9 @@ function Categorybarmn(props) {
      
      });
      console.log(Data);
+     setTransactionState(false);
     };
-   fetchData();},[Data,monthval,yearval,year,props.message,props.api]);
+   fetchData();},[monthval,yearval,year,transactionState]);
        
      return(
       
@@ -109,7 +111,7 @@ plugins: {
     align: function(context) {
       var index = context.dataIndex;
       var value = context.dataset.data[index];
-      return value < 1 ? 'right' : 'right'
+      return value < 1 ? 'right' : null
     },
     anchor: 'end',
     backgroundColor: null,

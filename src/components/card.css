@@ -30,7 +30,7 @@ right: 52.5%;
   display: flex;
   padding: 10px; 
   justify-content: space-between;
-  width: 325px;
+  width: 425px;
 
   }
 /* padding: 10px;  */
@@ -42,7 +42,7 @@ right: 52.5%;
     z-index: 0;
   }
   .block {
-    width: 160px;
+    width: 190px;
     display: inline-block
   
   }

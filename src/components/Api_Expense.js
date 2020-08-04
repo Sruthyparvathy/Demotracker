@@ -12,7 +12,7 @@ export default function Expense(props){
     const[items,setItems]=useState([]);
     const {transactionState,setTransactionState}=useContext(UserContext);
     
-
+console.log(transactionState);
     useEffect(() => {
         var  parts;
         let months={"01":"January","02":"February","03":"March","04":"April","05":"May","06":"June",
@@ -55,11 +55,12 @@ export default function Expense(props){
                                             res.data[key2]["colour"]="#F35B8C";
                                         }
                                         setItems(res.data); 
+                                        console.log(res);
                                         setTransactionState(false);}
              
             };
             fetchData();
-},[transactionState,props.dataA,props.dataB,props.dataBoth,props.message,setTransactionState]);
+},[transactionState]);
 
 return(
          

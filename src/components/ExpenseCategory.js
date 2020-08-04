@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 //import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card'
-//import { TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import FormDialog from '../components/Category';
 import './card.css';
 import * as API from '../constants/Api';
@@ -13,52 +13,51 @@ import axios from 'axios';
 const useStyles = makeStyles( (theme) => ({
  
   drawerPaper:{
-   width:"450px",
-   backgroundColor:"#F35B8C", 
+   width:"520px",
+   backgroundColor:"#F35B8C",
+   marginLeft:"555px",
+   //marginRight:"50px",
+   height:"100%",
   },
  
-textField: {
-  marginLeft: theme.spacing.unit,
-  marginRight: theme.spacing.unit,
-  width: 390,
-  paddingTop: 10,
-  paddingBottom: 0,
-  marginTop: 20,
-  marginBottom:0,
-  paddingLeft:10,
-  paddingRight:10,
-  color: "white",
-  '& .MuiInput-input':{ color: "white"},
-  multilineColor:{
-  color:'white'
-  },
-  '& label.Mui-focused': {
-  color: 'white',
-  },
-  '& label': {
-  color: 'white',
-  },
-  '& .MuiInput-underline:after': {
-  borderBottomColor: 'white',
-  },
-  '& .MuiInput-underline:before': {
-  borderBottomColor: 'white',
-  },
-  
-  '&:hover fieldset': {
-  borderColor: 'white',
-  },
-  '&.Mui-focused fieldset': {
-  borderColor: 'white',
-  },
-  '&& .MuiInput-root:hover::before': {
-  borderColor: 'white',
-  } 
-  }, 
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 445,
+    paddingTop: 10,
+    marginTop: 20,
+    color: "white",
+    '& .MuiInput-input':{ color: "white"},
+    multilineColor:{
+    color:'white'
+    },
+    '& label.Mui-focused': {
+    color: 'white',
+    },
+    '& label': {
+    color: 'white',
+    },
+    '& .MuiInput-underline:after': {
+    borderBottomColor: 'white',
+    },
+    '& .MuiInput-underline:before': {
+    borderBottomColor: 'white',
+    },
+    
+    '&:hover fieldset': {
+    borderColor: 'white',
+    },
+    '&.Mui-focused fieldset': {
+    borderColor: 'white',
+    },
+    '&& .MuiInput-root:hover::before': {
+    borderColor: 'white',
+    } 
+    }, 
   root: {
     flexGrow: 1,
-    marginLeft:"35px",
-    marginRight:"15px",
+    marginLeft:"55px",
+    marginRight:"35px",
   },
   paper: {
     flexDirection:'row',
@@ -68,7 +67,7 @@ textField: {
     textAlign:"center",
     position:"justify",
     color:"#F35B8C",
-    padding:"10px",
+    padding:"20px",
     height:"75px",width:"75px",
     marginBottom:"2px",marginTop:"1px",
     backgroundColor:"#ecc1c1"
@@ -108,8 +107,10 @@ export default  function  ExpenseCategory(props) {
 
   
   const list = (anchor) => (
+    <div>
+      <Drawer  classes={{ paper: classes.drawerPaper}} variant='temporary' anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)} > 
     <div className={classes.categorylist}>
-          <p style={{marginTop:"35px",color:"#f1f1f1",marginLeft:"80px"}}> Select Category</p>
+          <p style={{marginTop:"35px",color:"#f1f1f1",marginRight:"150px"}}> Select Category</p>
           <Grid container className={classes.root} >
       <Grid item xs={10}>
         <Grid container justify="center" spacing={0.5}>
@@ -125,18 +126,21 @@ export default  function  ExpenseCategory(props) {
       </Grid>
      </Grid>
     </div>
+    </Drawer>
+    </div>
   );
 
   return (
     <div>
-      {['right'].map((anchor) => (
+      {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <form  onClick={toggleDrawer(anchor, true)}  style={{color:"#f1f1f1", marginTop:"40px"}}> 
-          Category
-          </form> 
-          <Drawer  classes={{ paper: classes.drawerPaper}} variant='persistent' anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)} >
+         <TextField label="Category" name='category' id='category' autoComplete="off"
+            required InputLabelProps={{required:false}}
+            value={props.catName}          
+            className={classes.textField} onClick={toggleDrawer(anchor, true)} />
+          
             {list(anchor)}
-          </Drawer>
+       
         </React.Fragment>
       ))}
      

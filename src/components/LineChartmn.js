@@ -6,7 +6,7 @@ import { UserContext } from './Context';
 
 function LineChartmn(props) {
 
-  const {monthval,yearval,year}=useContext(UserContext);
+  const {monthval,yearval,year,transactionState,setTransactionState}=useContext(UserContext);
   const [Data, setData] = useState({labels:'',
                                      datasets:[ { data:'',
                                      fill: '',
@@ -48,8 +48,9 @@ function LineChartmn(props) {
      
      });
      console.log(Data);
+     setTransactionState(false);
     };
-   fetchData();},[Data,monthval,yearval,year,props.api,props.message]);
+   fetchData();},[monthval,yearval,yearval,transactionState]);
 
 
     return (

@@ -12,7 +12,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 import * as API from '../constants/Api';
 import ExpenseCategory from './ExpenseCategory'
-import {UserContext} from './Context';
+import { UserContext } from './Context';
 
 var newDate = new Date();
 var moment = require('moment');
@@ -27,7 +27,8 @@ const useStyles = makeStyles( (theme) => ({
       flexWrap: 'wrap',
   },
   datepickerx:{
-      width: 120,
+    marginTop:10,
+      width: 150,
       underline: {
           "&&&:before": {
           color: "white"
@@ -77,6 +78,7 @@ const useStyles = makeStyles( (theme) => ({
       borderRadius: 3,
       color: "white",
       width:400,
+      marginLeft:25,
       height: 50,
       marginTop: 50,
       textTransform: 'none',
@@ -101,7 +103,7 @@ const useStyles = makeStyles( (theme) => ({
   textField: {
       marginLeft: theme.spacing.unit,
       marginRight: theme.spacing.unit,
-      width: 390,
+      width: 445,
       paddingTop: 10,
       marginTop: 20,
       color: "white",
@@ -176,7 +178,7 @@ export default function InsertExpense(props){
     const[selex,setSelex]=useState('');
     const[open,setOpen]=useState(false);
     const[catName,setCatname]=useState('');
-    const {setTransactionState}=useContext(UserContext);
+    const {setTransactionState} = useContext(UserContext);
    
 
    const handleClose = () => {
@@ -245,7 +247,7 @@ export default function InsertExpense(props){
                   <form onSubmit={handleSubmit} >
                  
                       {/* Datepicker */}
-                      <label className="labelclass"> 
+                      <label className="labelclass" style={{paddingTop:10,marginTop:50}}> 
                       Date            
                               <TextField
                               onChange={handleChange1}
@@ -255,7 +257,7 @@ export default function InsertExpense(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <CalendarTodayIcon style={{ fontSize: 25, paddingLeft:70 }}  />
+                              <CalendarTodayIcon style={{ marginTop:-30,fontSize: 25, paddingLeft:350 }}  />
                       </label>
           
                       {/* Item Field */}

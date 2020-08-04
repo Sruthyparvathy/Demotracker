@@ -3,7 +3,7 @@ import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-//import {Typography } from '@material-ui/core';
+import {TextField } from '@material-ui/core';
 import FormDialog from '../components/NewCategory';
 import './card.css';
 import * as API from '../constants/Api';
@@ -29,14 +29,15 @@ const useStyles = makeStyles( (theme) => ({
     backgroundColor:"#ecc1c1",
   },
   drawerPaper:{
-    width:"550px",
+    width:"520px",
     backgroundColor:"#69B5FF", 
-    marginLeft:"430px"
+    marginLeft:"555px",
+    height:"100%",
    },
 textField: {
-  marginLeft: theme.spacing.unit,
+  marginLeft: -5,
   marginRight: theme.spacing.unit,
-  width: 390,
+  width: 470,
   paddingTop: 10,
   marginTop: 20,
   color: "white",
@@ -106,8 +107,10 @@ export default  function  IncomeCategory(props) {
   console.log('data',data);
 
   const list = (anchor) => (
+    <div>
+      <Drawer  classes={{ paper: classes.drawerPaper}} variant='temporary' anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)} >
     <div className={classes.categorylist}>
-          <p style={{marginTop:"35px",color:"#f1f1f1",marginLeft:"80px"}}> Select Category</p>
+          <p style={{marginTop:"35px",color:"#f1f1f1",marginLeft:"10px"}}> Select Category</p>
           <Grid container className={classes.root} >
       <Grid item xs={8}>
         <Grid container justify="center" spacing={0.5}>
@@ -123,21 +126,26 @@ export default  function  IncomeCategory(props) {
       </Grid>
      </Grid>
     </div>
+    </Drawer>
+    </div>
   );
 
   return (
 <div>
-      {['left'].map((anchor) => (
+      {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <form  onClick={toggleDrawer(anchor, true)}  style={{color:"#f1f1f1", marginTop:"40px"}}> 
-          Category
-          </form>
-          <Drawer  classes={{ paper: classes.drawerPaper}} variant='persistent' anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)} >
+          {/* <TextField   label= "Category" onClick={toggleDrawer(anchor, true)}  style={{color:"#f1f1f1", marginTop:"40px"}}> 
+
+          </TextField> */}
+          <TextField label="Category" name='category' id='category' autoComplete="off"
+            required InputLabelProps={{required:false}}
+            value={props.catName}          
+            className={classes.textField} onClick={toggleDrawer(anchor, true)} />
+          
             {list(anchor)}
-          </Drawer>
+       
         </React.Fragment>
       ))}
-     
     </div>
   );
   

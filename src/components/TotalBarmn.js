@@ -6,14 +6,13 @@ import { Grid } from "@material-ui/core";
 //import * as API from '../constants/Api';
 import { UserContext } from './Context';
 
-
 function TotalBarmn(props){
-  
-  const {monthval,yearval,year}=useContext(UserContext);
+  const {monthval,yearval,year,transactionState,setTransactionState}=useContext(UserContext);
   const [Data, setData] = useState({labels:[],
                                      datasets:[ { data:'',
                                                    borderColor:'',
                                                    backgroundColor:[] } ] });
+                                                   console.log(transactionState);
  // const [errorMessage, seterrorMessage] = useState('');
 
   
@@ -47,13 +46,14 @@ function TotalBarmn(props){
             
            }
         ]
-     
+        
      });
+     setTransactionState(false);
      console.log(Data);
-  
   };
-  fetchData();},[Data,props.api,props.message,monthval,yearval,year]);
 
+  console.log(transactionState);
+  fetchData();},[monthval,yearval,year,transactionState]);
     
      return(
       <Grid>
@@ -117,7 +117,7 @@ plugins: {
     align: function(context) {
       var index = context.dataIndex;
       var value = context.dataset.data[index];
-      return value < 1 ? 'right' : 'right'
+      return value < 1 ? 'right' : null
     },
     anchor: 'start',
     backgroundColor: null,

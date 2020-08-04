@@ -28,7 +28,7 @@ const useStyles = makeStyles( (theme) => ({
       flexWrap: 'wrap',
   },
   datepickerx:{
-      width: 120,
+      width: 150,
       underline: {
           "&&&:before": {
           color: "white"
@@ -100,9 +100,9 @@ const useStyles = makeStyles( (theme) => ({
       
   },
   textField: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: -5,
     marginRight: theme.spacing.unit,
-    width: 390,
+    width: 470,
     paddingTop: 10,
     marginTop: 20,
     color: "white",
@@ -247,7 +247,7 @@ export default function InsertIncome(props){
                   <form onSubmit={handleSubmit} >
                  
                       {/* Datepicker */}
-                      <label className="labelclass"> 
+                      <label className="labelclass" style={{ marginLeft: -50}}> 
                       Date            
                               <TextField
                               onChange={handleChange1}

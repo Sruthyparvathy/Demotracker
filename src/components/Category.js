@@ -54,7 +54,7 @@ handleClickOpen = () =>{
   return (
         
           <div>
-      <Button style={{marginLeft:"1px",paddingTop:"10px",textAlign:"center",position:"justify",padding:"10px",height:"95px",width:"95px",marginTop:"1px",marginBottom:"2px", color:"#F35B8C",backgroundColor:"#ecc1c1",textTransform:"none"}} onClick={this.handleClickOpen}>
+      <Button style={{marginLeft:"1px",paddingTop:"10px",textAlign:"center",position:"justify",padding:"54px",height:"95px",width:"95px",marginTop:"1px",marginBottom:"2px", color:"#F35B8C",backgroundColor:"#ecc1c1",textTransform:"none"}} onClick={this.handleClickOpen}>
       <Typography display="block"> 
              <h6> +New  </h6>
              {category}
