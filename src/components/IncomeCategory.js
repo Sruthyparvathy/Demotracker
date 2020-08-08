@@ -1,19 +1,21 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState , useContext}  from 'react';
 import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import {TextField } from '@material-ui/core';
+//import {TextField } from '@material-ui/core';
 import FormDialog from '../components/NewCategory';
 import './card.css';
 import * as API from '../constants/Api';
 import axios from 'axios';
+import {UserContext} from './Context';
 
 const useStyles = makeStyles( (theme) => ({
   root: {
     flexGrow: 1,
-    marginLeft:"45px",
+    marginLeft:"75px",
     marginRight:"15px",
+    width:"450px",
   },
   paper: {
     flexDirection:'row',
@@ -29,9 +31,9 @@ const useStyles = makeStyles( (theme) => ({
     backgroundColor:"#ecc1c1",
   },
   drawerPaper:{
-    width:"520px",
+    width:"67.5%",
     backgroundColor:"#69B5FF", 
-    marginLeft:"555px",
+    marginLeft:"420px",
     height:"100%",
    },
 textField: {
@@ -75,7 +77,7 @@ textField: {
 
 export default  function  IncomeCategory(props) {
  const [number,setNumber] = useState(1);
-
+ const {openi,setOpeni,setCatname,setSelex} = useContext(UserContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -89,28 +91,24 @@ export default  function  IncomeCategory(props) {
 
  const onPaperClick = (text) =>{
     console.log({text});
-    props.onCategoryChange(text);
-    setState ({category: text.CATEGORY_NAME});
+    setCatname(text.CATEGORY_NAME);
+    setSelex(text.ID);
+    setOpeni(false); 
   }
 
   const classes = useStyles();
-  const [state, setState] = React.useState(
-    {left:false,
-      newChange:false,
-      }
-  );
- 
-  const toggleDrawer = (anchor, open) => (event) => {
-    setState({ ...state, [anchor]: open });
-  };
+  
+  const handleClose = () =>{
+    setOpeni(false);
+}
 
   console.log('data',data);
 
-  const list = (anchor) => (
+  const list  = (
     <div>
-      <Drawer  classes={{ paper: classes.drawerPaper}} variant='temporary' anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)} >
+      <Drawer  classes={{ paper: classes.drawerPaper}} variant='persistent' anchor='top' open={openi} onClose={handleClose} >
     <div className={classes.categorylist}>
-          <p style={{marginTop:"35px",color:"#f1f1f1",marginLeft:"10px"}}> Select Category</p>
+          <p style={{marginTop:"55px",color:"#f1f1f1",marginLeft:"75px"}}> Select Category</p>
           <Grid container className={classes.root} >
       <Grid item xs={8}>
         <Grid container justify="center" spacing={0.5}>
@@ -132,20 +130,20 @@ export default  function  IncomeCategory(props) {
 
   return (
 <div>
-      {['top'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          {/* <TextField   label= "Category" onClick={toggleDrawer(anchor, true)}  style={{color:"#f1f1f1", marginTop:"40px"}}> 
+    
+        <React.Fragment >
+        
 
-          </TextField> */}
-          <TextField label="Category" name='category' id='category' autoComplete="off"
+     
+          {/* <TextField label="Category" name='category' id='category' autoComplete="off"
             required InputLabelProps={{required:false}}
             value={props.catName}          
-            className={classes.textField} onClick={toggleDrawer(anchor, true)} />
+            className={classes.textField} onClick={toggleDrawer(anchor, true)} /> */}
           
-            {list(anchor)}
+            {list}
        
         </React.Fragment>
-      ))}
+    
     </div>
   );
   

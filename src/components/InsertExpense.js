@@ -11,24 +11,28 @@ import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 import * as API from '../constants/Api';
-import ExpenseCategory from './ExpenseCategory'
+//import ExpenseCategory from './ExpenseCategory'
 import { UserContext } from './Context';
+
 
 var newDate = new Date();
 var moment = require('moment');
 var dateIn = moment(newDate);
 var formatedDate=dateIn.format("YYYY-MM-DD");
 
-
 //Adding js styles
-const useStyles = makeStyles( (theme) => ({
+const useStyles = makeStyles( (theme) => (
+  {
   container: {
-      display: 'flex',    
+      display: 'flex',     
       flexWrap: 'wrap',
+ 
   },
   datepickerx:{
-    marginTop:10,
-      width: 150,
+  
+      width: 135,
+     // paddingTop:-200,
+    marginLeft:58,
       underline: {
           "&&&:before": {
           color: "white"
@@ -41,7 +45,7 @@ const useStyles = makeStyles( (theme) => ({
               borderColor: 'white',
           },
           '& .MuiInput-input':{ color: "white"},
-          paddingLeft: 140,
+         
           color: "white",
           textEmphasisColor: "white",
           '& .MuiInput-underline:before': {
@@ -72,18 +76,18 @@ const useStyles = makeStyles( (theme) => ({
           },
       },
   Button:{
-  
+    marginLeft: -10,
       background: 'grey',
       border: 0,
       borderRadius: 3,
       color: "white",
-      width:400,
-      marginLeft:25,
+      width:350,
       height: 50,
-      marginTop: 50,
+      marginTop: 25,
       textTransform: 'none',
       backgroundColor: '#37364b',
       borderColor: '#007bff',
+      // borderRadius: 10,
       '&:hover': {
       backgroundColor: 'black',
       borderColor: '#0062cc',
@@ -101,11 +105,11 @@ const useStyles = makeStyles( (theme) => ({
       
   },
   textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit,
-      width: 445,
+      marginLeft: -10,
+      marginRight: 10,
+      width: 350,
       paddingTop: 10,
-      marginTop: 20,
+      marginTop: 10,
       color: "white",
       '& .MuiInput-input':{ color: "white"},
       multilineColor:{
@@ -138,12 +142,11 @@ const useStyles = makeStyles( (theme) => ({
       marginTop: 19,
   },
   menu: {
-      width: 100,
+      width: 200,
   },
   }));
-  
 
-    //Included with material ui code for Numberbox
+   //Included with material ui code for Numberbox
     function NumberFormatCustom(props) {
     const { inputRef, onChange, ...other } = props;
     
@@ -175,10 +178,10 @@ export default function InsertExpense(props){
     const[item,setItem]=useState('');
     const[amount,setAmount]=useState('');
     //const[category,setCategory]=useState('');
-    const[selex,setSelex]=useState('');
+    //const[selex,setSelex]=useState('');
     const[open,setOpen]=useState(false);
-    const[catName,setCatname]=useState('');
-    const {setTransactionState} = useContext(UserContext);
+    //const[catName,setCatname]=useState('');
+    const {opend,setOpend,selex,setSelex,catName,setCatname,setTransactionState} = useContext(UserContext);
    
 
    const handleClose = () => {
@@ -197,11 +200,14 @@ export default function InsertExpense(props){
         setAmount(event.target.value);
         
       }
-    
-      const  handleChange4 = category => {
-        setCatname(category.CATEGORY_NAME);
-        setSelex(category.ID);
-      }
+    const handleOpend = () =>{
+      setOpend(true);
+      console.log(opend);
+    }
+      // const  handleChange4 = category => {
+      //   setCatname(category.CATEGORY_NAME);
+      //   setSelex(category.ID);
+      // }
 
       const  handleSubmit = event => {
     
@@ -247,8 +253,8 @@ export default function InsertExpense(props){
                   <form onSubmit={handleSubmit} >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style={{paddingTop:10,marginTop:50}}> 
-                      Date            
+                      <label className="labelclass" style = {{  marginLeft: -10,paddingTop:-100,marginTop:500}} > 
+                                 Date
                               <TextField
                               onChange={handleChange1}
                               name="date" 
@@ -257,7 +263,7 @@ export default function InsertExpense(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <CalendarTodayIcon style={{ marginTop:-30,fontSize: 25, paddingLeft:350 }}  />
+                              <CalendarTodayIcon style={{fontSize: 25,paddingLeft:100}}  />
                       </label>
           
                       {/* Item Field */}
@@ -285,16 +291,14 @@ export default function InsertExpense(props){
                   />
                       
                       {/* Category Field */}
-                      <ExpenseCategory message={props.message} 
-            onCategoryChange={handleChange4} catName={catName}/>
-                       {/* <ExpenseCategory message={props.message} onCategoryChange = {updateCategory}/>
-                      <TextField style={{marginTop:"-20px"}} autoComplete="off"
-                        required
-                        InputLabelProps={{required: false}}  
-                        className={classes.textField} 
-                        name="category" 
-                        value={catname}
-                        onChange={handleChange4}/> */}
+                      {/* <ExpenseCategory message={props.message} 
+            onCategoryChange={handleChange4} /> */}
+           
+                       
+           <TextField label="Category" name='category' id='category' autoComplete="off"
+            required InputLabelProps={{required:false}}
+            value={catName}          
+            className={classes.textField} onClick={handleOpend}  />
           
                       {/* Submit button */}
           

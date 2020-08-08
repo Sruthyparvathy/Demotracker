@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 import * as API from '../constants/Api';
-import IncomeCategory from './IncomeCategory';
+//import IncomeCategory from './IncomeCategory';
 //import SelectIncomeCategory from "./Apiexpense";
 import {UserContext} from './Context';
 
@@ -26,9 +26,11 @@ const useStyles = makeStyles( (theme) => ({
   container: {
       display: 'flex',    
       flexWrap: 'wrap',
+      height: "100%",
   },
   datepickerx:{
       width: 150,
+      paddingLeft: 70,
       underline: {
           "&&&:before": {
           color: "white"
@@ -41,7 +43,7 @@ const useStyles = makeStyles( (theme) => ({
               borderColor: 'white',
           },
           '& .MuiInput-input':{ color: "white"},
-          paddingLeft: 140,
+       
           color: "white",
           textEmphasisColor: "white",
           '& .MuiInput-underline:before': {
@@ -72,14 +74,15 @@ const useStyles = makeStyles( (theme) => ({
           },
       },
   Button:{
-  
+      marginLeft:-15,
+      marginRight: 10,
       background: 'grey',
       border: 0,
       borderRadius: 3,
       color: "white",
-      width:400,
+      width:350,
       height: 50,
-      marginTop: 50,
+      marginTop: 25,
       textTransform: 'none',
       backgroundColor: '#37364b',
       borderColor: '#007bff',
@@ -100,11 +103,11 @@ const useStyles = makeStyles( (theme) => ({
       
   },
   textField: {
-    marginLeft: -5,
-    marginRight: theme.spacing.unit,
-    width: 470,
+    marginLeft:-15,
+    marginRight: 10,
+    width:350,
     paddingTop: 10,
-    marginTop: 20,
+    marginTop: 10,
     color: "white",
     '& .MuiInput-input':{ color: "white"},
     multilineColor:{
@@ -133,12 +136,7 @@ const useStyles = makeStyles( (theme) => ({
     borderColor: 'white',
     } 
     },
-  dense: {
-      marginTop: 19,
-  },
-  menu: {
-      width: 100,
-  },
+  
   }));
   
 
@@ -174,10 +172,10 @@ export default function InsertIncome(props){
     const[item,setItem]=useState('');
     const[amount,setAmount]=useState('');
     //const[category,setCategory]=useState('');
-    const[selex,setSelex]=useState('');
+    //const[selex,setSelex]=useState('');
     const[open,setOpen]=useState(false);
-    const[catName,setCatname]=useState('');
-    const {setTransactionState}=useContext(UserContext);
+    //const[catName,setCatname]=useState('');
+    const {openi,setOpeni,selex,setSelex,catName,setCatname,setTransactionState}=useContext(UserContext);
    
 
    const handleClose = () => {
@@ -197,9 +195,9 @@ export default function InsertIncome(props){
         
       }
     
-      const  handleChange4 = category => {
-        setCatname(category.CATEGORY_NAME);
-        setSelex(category.ID);
+      const handleOpeni = () =>{
+        setOpeni(true);
+        console.log(openi);
       }
       // const handleChange4 = event => {
       //   setCatname(event.target.value);
@@ -244,10 +242,10 @@ export default function InsertIncome(props){
       
                 <div className="textdiv">
                   {/* form starts here */}
-                  <form onSubmit={handleSubmit} >
+                  <form onSubmit={handleSubmit}  >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style={{ marginLeft: -50}}> 
+                      <label className="labelclass" style={{ marginLeft: -15}}> 
                       Date            
                               <TextField
                               onChange={handleChange1}
@@ -257,7 +255,7 @@ export default function InsertIncome(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <CalendarTodayIcon style={{ fontSize: 25, paddingLeft:70 }}  />
+                              <CalendarTodayIcon style={{ fontSize: 25, paddingLeft:80 }}  />
                       </label>
           
                       {/* Item Field */}
@@ -285,17 +283,13 @@ export default function InsertIncome(props){
                   />
                       
                       {/* Category Field */}
-                      <IncomeCategory message={props.message} 
-            onCategoryChange={handleChange4} catName={catName}/>
-                       {/* <IncomeCategory message={props.message} onCategoryChange = {updateCategory}/>
-                      <TextField style={{marginTop:"-20px"}} autoComplete="off"
-                        required
-                        InputLabelProps={{required: false}}  
-                        className={classes.textField} 
-                        name="category" 
-                        value={catName}
-                        onChange={handleChange4}/> */}
-          
+                      {/* <IncomeCategory message={props.message} 
+            onCategoryChange={handleChange4} catName={catName}/> */}
+            <TextField label="Category" name='category' id='category' autoComplete="off"
+            required InputLabelProps={{required:false}}
+            value={catName}          
+            className={classes.textField} onClick={handleOpeni}  />
+                      
                       {/* Submit button */}
           
                       <div> 

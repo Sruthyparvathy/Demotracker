@@ -19,7 +19,7 @@
 .style{
 
 position: absolute;
-left: 3%;
+left: 2%;
 right: 52.5%;
 /* right: 53.5%; */
 
@@ -28,9 +28,10 @@ right: 52.5%;
 
 .card-container {
   display: flex;
-  padding: 10px; 
+  padding: 5px; 
   justify-content: space-between;
-  width: 425px;
+  width: 375px;
+  margin-top: 0px;
 
   }
 /* padding: 10px;  */

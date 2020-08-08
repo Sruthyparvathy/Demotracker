@@ -15,3 +15,4 @@ export const ADD_INCOME = "http://localhost:8081/tracker/register/addincome";
 export const ADD_EXPENSE = "http://localhost:8081/tracker/register/addexpense";
 export const ADD_INCOME_CATEGORY = "http://localhost:8081/tracker/register/addincomecategory";
 export const ADD_EXPENSE_CATEGORY = "http://localhost:8081/tracker/register/addexpensecategory";
+export const REGISTER="http://localhost:8081/tracker/register/";
