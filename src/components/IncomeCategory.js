@@ -3,7 +3,6 @@ import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-//import {TextField } from '@material-ui/core';
 import FormDialog from '../components/NewCategory';
 import './card.css';
 import * as API from '../constants/Api';
@@ -76,17 +75,17 @@ textField: {
 
 
 export default  function  IncomeCategory(props) {
- const [number,setNumber] = useState(1);
+ const [count,setCount] = useState(1);
  const {openi,setOpeni,setCatname,setSelex} = useContext(UserContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
       .get(API.CAT_LIST_INCOME,{ params: {userId:props.message}})
       .then(response  => setData(response.data));
-  },[number,props.message]);
+  },[count,props.message]);
 
   const addCategory = () =>{
-    setNumber(number+1);
+    setCount(count+1);
   }
 
  const onPaperClick = (text) =>{
@@ -132,14 +131,7 @@ export default  function  IncomeCategory(props) {
 <div>
     
         <React.Fragment >
-        
-
-     
-          {/* <TextField label="Category" name='category' id='category' autoComplete="off"
-            required InputLabelProps={{required:false}}
-            value={props.catName}          
-            className={classes.textField} onClick={toggleDrawer(anchor, true)} /> */}
-          
+             
             {list}
        
         </React.Fragment>

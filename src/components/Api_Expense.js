@@ -3,7 +3,6 @@ import './card.css';
 import axios from 'axios';
 import Cards from './Cards';
 import * as API from '../constants/Api';
-// import {UserConsumer} from './Context';
 import {UserContext} from './Context';
 
 

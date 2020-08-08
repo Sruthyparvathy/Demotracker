@@ -2,16 +2,13 @@ import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import {TextField,Button} from '@material-ui/core/';
 import './Style.css';
-//import { withStyles } from "@material-ui/core/styles";
 import { makeStyles} from '@material-ui/core/styles';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-//import Autocomplete from '@material-ui/lab/Autocomplete';
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 import * as API from '../constants/Api';
-//import ExpenseCategory from './ExpenseCategory'
 import { UserContext } from './Context';
 
 
@@ -204,10 +201,6 @@ export default function InsertExpense(props){
       setOpend(true);
       console.log(opend);
     }
-      // const  handleChange4 = category => {
-      //   setCatname(category.CATEGORY_NAME);
-      //   setSelex(category.ID);
-      // }
 
       const  handleSubmit = event => {
     
@@ -233,20 +226,9 @@ export default function InsertExpense(props){
           fetchData();
         }
 
-          // const    updateCategory = category  =>{
-          //     setSelex(category.ID);
-          //     setCatname(category.CATEGORY_NAME);
-          //     }
-              // let options = ProductData.map(function (cat) {
-              //   return { value: cat.ID, label: cat.CATEGORY_NAME };
-              // })
-
-              // console.log("xxxxxxxx",options);
-            //   console.log(this.context);
             const classes = useStyles();
 
-            return (
-                
+            return (      
       
                 <div className="textdiv">
                   {/* form starts here */}
@@ -291,10 +273,6 @@ export default function InsertExpense(props){
                   />
                       
                       {/* Category Field */}
-                      {/* <ExpenseCategory message={props.message} 
-            onCategoryChange={handleChange4} /> */}
-           
-                       
            <TextField label="Category" name='category' id='category' autoComplete="off"
             required InputLabelProps={{required:false}}
             value={catName}          

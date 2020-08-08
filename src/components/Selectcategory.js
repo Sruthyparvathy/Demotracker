@@ -2,9 +2,7 @@ import React, { useEffect, useState, useContext }  from 'react';
 import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
-//import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card'
-//import { TextField } from '@material-ui/core';
 import FormDialog from '../components/Category';
 import './card.css';
 import * as API from '../constants/Api';
@@ -77,18 +75,17 @@ const useStyles = makeStyles( (theme) => ({
 }));
   
 export default  function  SelectCategory(props) {
-  const [number,setNumber] = useState(1);
-  //const [opend,setOpend] = useState(false);
+  const [count,setCount] = useState(1);
   const {opend,setOpend,setCatname,setSelex} = useContext(UserContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
       .get(API.CAT_LIST_EXPENSE,{ params: {userId:props.message}})
       .then(response  => setData(response.data));
-  },[number,props.message]);
+  },[count,props.message]);
 
   const addCategory = () =>{
-    setNumber(number+1);
+    setCount(count+1);
   }
 
  const onPaperClick = (text) =>{
@@ -100,11 +97,7 @@ export default  function  SelectCategory(props) {
 
   const classes = useStyles();
  
-//  const handleOpen = () =>{
-//      setOpend(true);
-//      console.log(opend);
-//  }
- 
+
 const handleClose = () =>{
     setOpend(false);
 }
@@ -137,11 +130,7 @@ const handleClose = () =>{
     <div>
      
         <React.Fragment >
-         {/* <TextField label="Category" name='category' id='category' autoComplete="off"
-            required InputLabelProps={{required:false}}
-            value={catName}          
-            className={classes.textField} onClick={handleOpen} /> */}
-          
+
             {list}
        
         </React.Fragment>

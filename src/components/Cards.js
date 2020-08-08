@@ -40,4 +40,3 @@ class Cards extends Component{
 
 export default Cards;
 
-// style={{font: " Bold 24px source sans pro" }}

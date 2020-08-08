@@ -33,15 +33,10 @@ class Home extends Component{
         <CustomizedTabs  message = {this.props.params.id}/> </div> 
         </UserProvider>
        </div> 
-    //    <Provider store = {store}>
-    //    </Provider>
+  
         );
     }
 }
 export default Home;
 
 
-  // <div>
-        //     <p>User Id : {this.props.params.id}</p>
-        //     <p>Name    : {this.props.params.name}</p>
-        //     </div>
