@@ -50,7 +50,7 @@ function LineChartmn(props) {
      console.log(Data);
      setTransactionState(false);
     };
-   fetchData();},[monthval,yearval,yearval,transactionState]);
+   fetchData();},[monthval,yearval,year,transactionState]);
 
 
     return (

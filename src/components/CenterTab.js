@@ -50,7 +50,7 @@ function a11yProps(index) {
 //minor changes in default styles
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F35B8C',
+   // backgroundColor: '#F35B8C',
     height:100,
     fontSize:35,
     color: "white",
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 const useStyles1 = makeStyles((theme) => ({
     root: {
       backgroundColor: '#69B5FF',
-
+      
       textTransform: 'none',
       font: "Bold 35px/37px source sans pro",
 

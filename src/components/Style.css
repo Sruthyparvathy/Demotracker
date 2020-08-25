@@ -12,27 +12,11 @@
   text-align: right;
 }
 
-.reddiv{height: 100%; background-color:  #F35B8C;}
 
-.bluediv{height: 100%; background-color:#69B5FF;}
+.reddiv{height: 81vh; background-color:  #F35B8C;}
 
-/* #whitetext{ color: white; text-emphasis-color: white;  width: 50vh; padding-top: 30px; margin-top: 30px; align-items: center; size: 50px;background-color: "blue"} */
+.bluediv{height: 88vh; background-color:#69B5FF;}
 
-
-/* .textdiv{
-  align-self: justified;
-  margin-left: 5%;
-  margin-top: 5%;
-  width: 31.5%;
-  height: 250%;
-  padding: -100%;
-} */
-
-/* .labelclass{
-  margin-top: 50px;
-  color: white;
- padding-top: 150px;
-} */
 .textdiv{
   align-self: center;
   margin-left: 5%;
@@ -65,7 +49,7 @@
 /* Control the center side */
 .center1 {
   left: 31.5%;
-  width: 67.5%;
+  width: 67%;
   background-color: rgb(235, 228, 228);
   
   overflow: hidden;
@@ -78,18 +62,39 @@
   height:100%;
 }
 
-.header {
+.row{
+  display:inline-flex;
+  
+}
+.settings{
+  float:left;
+  position:center;
+  background: #cac9e7;
+  width:0px;
+  padding: 30px;
   margin-top: 0;
-  margin: 0px;
-  padding: 70px;
-  text-align: center;
+}
+.exit{
+  float:right;
+  background: #464475;
+  width:0px;
+  padding: 30px;
+  margin-top: 0;
+}
+
+.header {
+ 
+  width:62vh;
+  margin-top: 0;
+  padding: 60px;
+  float:left;
   background: #A4A1FB;
   color: white;
   font-size: 35px;
+  text-align: center;
   overflow: auto;
   font-weight: bold;
   font-family: Bold 35px/37px source sans pro;
-  /* left: 20%; */
   }
 
   .tabwrapper{
@@ -141,3 +146,4 @@
     height: 80px;
     padding: 5px;
   }
+  

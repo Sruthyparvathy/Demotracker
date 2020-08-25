@@ -10,7 +10,8 @@ import axios from 'axios';
 import * as API from '../constants/Api';
 
 export default class FormDialog extends React.Component{
-
+   
+   
   state = {
       openx: false,
       ttype:'',
@@ -30,12 +31,11 @@ handleClickOpen = () =>{
     console.log(this.state.ttype);
   }
 
- 
-
+//add new category api
   handleinsert = event => {
     event.preventDefault();
     console.log("dfdf");
-    axios.post(API.ADD_EXPENSE_CATEGORY,JSON.stringify({
+    axios.post(API.ADD_INCOME_CATEGORY,JSON.stringify({
       "categoryName": this.state.ttype,
       "userId": this.props.message,
     }), {headers: { "Content-Type":"application/json"}})    
@@ -46,18 +46,13 @@ handleClickOpen = () =>{
     })
   }
 
-  
- 
   render(){
-  
-  var category
+
   return (
-        
           <div>
-      <Button style={{marginLeft:"1px",paddingTop:"10px",textAlign:"center",position:"justify",height:"95px",width:"95px",marginTop:"1px",marginBottom:"2px", color:"#F35B8C",backgroundColor:"#ecc1c1",textTransform:"none"}} onClick={this.handleClickOpen}>
-      <Typography display="block"> 
-             <h6> +New  </h6>
-             {category}
+      <Button style={{marginLeft:"2px",paddingTop:"35px",textAlign:"center",position:"justify",padding:"10px",height:"95px",width:"95px",marginTop:"1px",marginBottom:"2px", color:"#69B5FF",backgroundColor:"#e6f3ff",textTransform:"none"}} onClick={this.handleClickOpen}>
+      <Typography variant='body2' display="block"> 
+             +New 
              </Typography>
       </Button>
       <div></div>
@@ -67,10 +62,10 @@ handleClickOpen = () =>{
           aria-labelledby="form-dialog-title"
         >
             
-            <form onSubmit={this.handleinsert}  >
+            <form onSubmit={this.handleinsert}>
           
           <DialogContent>
-          <DialogContentText style={{color:"#F35B8C"}}>
+          <DialogContentText style={{color:"#69B5FF"}}>
               Category Name
             </DialogContentText>
           <TextField 
@@ -83,15 +78,15 @@ handleClickOpen = () =>{
             />
         </DialogContent>
         <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} style={{color:"#69B5FF"}}>
               Cancel
             </Button>
-            <Button color="primary" type="submit">
+            <Button style={{color:"#69B5FF"}} type="submit"   >
               Add
             </Button>
           </DialogActions></form>
           </Dialog>
-          </div>    
+          </div>   
        
   );
   

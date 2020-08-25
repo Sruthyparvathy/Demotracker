@@ -16,8 +16,6 @@ const[isCheckedB,setIsCheckedB]=useState(false);
  const handleCheckedA =()=> { setIsCheckedA(!isCheckedA); }
  const handleCheckedB =()=> { setIsCheckedB(!isCheckedB); }
 
-    const isCheckedA = this.state.isCheckedA;
-    const isCheckedB = this.state.isCheckedB;
     let expense,income,both;
   
     if ((!isCheckedB &&  isCheckedA)) {expense = <Expense dataA={isCheckedA} message = {props.message} />;}

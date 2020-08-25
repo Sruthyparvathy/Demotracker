@@ -117,7 +117,7 @@ function YearMonthPicker(props) {
 
 
     return (
-      <DatePicker
+      <DatePicker 
       selected={startDate}
       onChange={handleChange}
       dateFormat="MMMM yyyy"

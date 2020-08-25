@@ -40,7 +40,7 @@ function Categorybarmn(props) {
            {
             data: amount,
             borderColor: '  rgb(255, 255, 255)',
-            backgroundColor:"#F35B8c"
+            backgroundColor:"#F35B8C"
            }
         ]
      
@@ -124,7 +124,7 @@ plugins: {
       weight: 300
     },
     offset: 4,
-    padding: 0,
+   
     formatter: function(value, context) {
       return context.chart.data.labels[context.dataIndex];
     }

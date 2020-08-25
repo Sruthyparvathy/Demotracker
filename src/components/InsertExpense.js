@@ -3,12 +3,13 @@ import axios from 'axios';
 import {TextField,Button} from '@material-ui/core/';
 import './Style.css';
 import { makeStyles} from '@material-ui/core/styles';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+//import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 import * as API from '../constants/Api';
+import { Icon } from 'semantic-ui-react';
 import { UserContext } from './Context';
 
 
@@ -29,7 +30,7 @@ const useStyles = makeStyles( (theme) => (
   
       width: 135,
      // paddingTop:-200,
-    marginLeft:58,
+    marginLeft:75,
       underline: {
           "&&&:before": {
           color: "white"
@@ -73,7 +74,7 @@ const useStyles = makeStyles( (theme) => (
           },
       },
   Button:{
-    marginLeft: -10,
+    marginLeft: 10,
       background: 'grey',
       border: 0,
       borderRadius: 3,
@@ -102,12 +103,12 @@ const useStyles = makeStyles( (theme) => (
       
   },
   textField: {
-      marginLeft: -10,
+      marginLeft: 10,
       marginRight: 10,
       width: 350,
       paddingTop: 10,
       marginTop: 10,
-      color: "white",
+     
       '& .MuiInput-input':{ color: "white"},
       multilineColor:{
       color:'white'
@@ -174,10 +175,7 @@ export default function InsertExpense(props){
     const[date,setDate]=useState(formatedDate);
     const[item,setItem]=useState('');
     const[amount,setAmount]=useState('');
-    //const[category,setCategory]=useState('');
-    //const[selex,setSelex]=useState('');
     const[open,setOpen]=useState(false);
-    //const[catName,setCatname]=useState('');
     const {opend,setOpend,selex,setSelex,catName,setCatname,setTransactionState} = useContext(UserContext);
    
 
@@ -235,7 +233,7 @@ export default function InsertExpense(props){
                   <form onSubmit={handleSubmit} >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style = {{  marginLeft: -10,paddingTop:-100,marginTop:500}} > 
+                      <label className="labelclass" style = {{  marginLeft: 10,paddingTop:-100,marginTop:500}} > 
                                  Date
                               <TextField
                               onChange={handleChange1}
@@ -245,7 +243,7 @@ export default function InsertExpense(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <CalendarTodayIcon style={{fontSize: 25,paddingLeft:100}}  />
+                              <Icon name='calendar outline' style={{fontSize: 20,paddingLeft:85}}  />
                       </label>
           
                       {/* Item Field */}
@@ -292,6 +290,7 @@ export default function InsertExpense(props){
                             variant="success"
                             message={<span  id="message-id">Expense Insertion Successfull</span>}
                       /> 
+                
                      </div>
                   </form>
                 </div>

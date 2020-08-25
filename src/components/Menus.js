@@ -6,7 +6,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const options = [
   'Profile',
-  'Logout',
+  'Report',
+  'Budget',
 ];
 
 const ITEM_HEIGHT = 48;

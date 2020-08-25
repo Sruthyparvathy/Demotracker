@@ -11,7 +11,7 @@ export default function Expense(props){
     const[items,setItems]=useState([]);
     const {transactionState,setTransactionState}=useContext(UserContext);
     
-console.log(transactionState);
+
     useEffect(() => {
         var  parts;
         let months={"01":"January","02":"February","03":"March","04":"April","05":"May","06":"June",
@@ -63,10 +63,9 @@ console.log(transactionState);
 
 return(
          
-    <div>
-        
+    <div>   
         <Cards items={items}/>
-        </div>
+    </div>
     
    )
 }

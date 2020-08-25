@@ -13,6 +13,7 @@ import WebFont from 'webfontloader';
 import * as API from '../constants/Api';
 
 
+
 WebFont.load({
     google: {
       families: ['Source Sans Pro']
@@ -21,6 +22,7 @@ WebFont.load({
 
  
 var errormsg='';
+
 class Login extends Component {   
     static displayName = 'RememberMe' 
 state = {
@@ -29,6 +31,7 @@ state = {
     User : [],
     showError: false,
     isChecked: false,
+   
 };
 
 componentDidMount() {
@@ -37,10 +40,13 @@ componentDidMount() {
             
             isChecked: true,
             username: localStorage.username,
-            password: localStorage.password,
+            password: localStorage.password,   
             
         })
+        
     }
+     
+    
 }
         onChangeValue = event => {
         this.setState({
@@ -62,6 +68,7 @@ componentDidMount() {
                 localStorage.username = username
                 localStorage.password = password
                 localStorage.checkbox = isChecked
+             
             }
         if(uname===null || uname === '' || pass===null || pass==='')
             {
@@ -115,6 +122,7 @@ componentDidMount() {
    
     render(){
         const { username, password, isChecked } = this.state
+        
       //  const preventDefault = (event) => event.preventDefault();
         return (
             <div>
@@ -122,9 +130,11 @@ componentDidMount() {
                 <img src={Background} alt="Background"/>
             </div>
             <div className="split right">
+          
             <div>
-                {this.state.showError && <div className="error-message">{errormsg}</div>}        
+                {this.state.showError && <div className="error-message">{errormsg}</div>}       
             </div>
+          
                 <div className='rightcontainer' >
                 <h1 WebFont>DEX Expenses</h1>
                     <h2 style={{marginTop:40,fontFamily:WebFont,fontSize:'18px',fontWeight:'normal'}}>Please login to your account</h2>
@@ -137,7 +147,7 @@ componentDidMount() {
                             inputProps={{ 'aria-label': 'description' }}
                             value={username}
                             
-                            style={{width: 445, height: 40,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                            style={{width: 430, height: 40,marginTop:40,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
                             onChanged={(evt) => { this.setState.username = evt.target.value; }}
                             onChange={this.onChangeValue}
                             onFocus={{border:"2px solid #37364B"}}/>
@@ -150,7 +160,7 @@ componentDidMount() {
                             inputProps={{ 'aria-label': 'description' }}
                             value={password}
                             
-                            style={{width: 445, height:40,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                            style={{width: 430, height:40,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
                             onChanged={(evt) => { this.setState.password =  evt.target.value; }}
                             onChange={this.onChangeValue}
                             onFocus={{border:"2px solid #37364B"}}/>
@@ -175,7 +185,7 @@ componentDidMount() {
                         variant="body2"
                         //href="#" 
                         //onClick={preventDefault}
-                        style={{height:50, paddingLeft:10,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal', textDecoration: 'none',border: '0px', color:"#37364B"}}
+                        style={{height:50, fontFamily:WebFont,fontSize:'16px',fontWeight:'normal', textDecoration: 'none',border: '0px', color:"#37364B"}}
                         onClick={()=>browserHistory.push("/forgotpassword")}>
                          {'Forgot Password'}
                         </Link>
@@ -194,9 +204,12 @@ componentDidMount() {
                         onClick={()=>browserHistory.push("/Register")}>
                             {'Sign Up'}
                         </Button>
+                      
                         </FormGroup>
                     </form>
+                   
                     </div>
+                   
             </div>
             
         </div>

@@ -27,9 +27,9 @@ right: 52.5%;
 
 .card-container {
   display: flex;
-  padding: 5px; 
+  padding: 8px; 
   justify-content: space-between;
-  width: 375px;
+  width: 440px;
   margin-top: 0px;
 
   }
@@ -54,10 +54,6 @@ right: 52.5%;
     z-index: 1;
     
     
-}
-
-.drawer{
-  background-color: bisque;
 }
 
 

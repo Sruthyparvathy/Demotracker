@@ -7,6 +7,7 @@ function YearPickerComp(props) {
     
     const [startDate, setStartDate] = useState(new Date());
     const {setYear}=useContext(UserContext);
+    
   const handleChange = date => {
     setStartDate(date);
     setYear(date.getYear()+ 1900);

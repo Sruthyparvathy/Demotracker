@@ -3,11 +3,12 @@ import axios from 'axios';
 import {TextField,Button} from '@material-ui/core/';
 import './Style.css';
 import { makeStyles} from '@material-ui/core/styles';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+//import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
+import { Icon } from 'semantic-ui-react';
 import * as API from '../constants/Api';
 import {UserContext} from './Context';
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles( (theme) => ({
   },
   datepickerx:{
       width: 150,
-      paddingLeft: 70,
+      marginLeft: 70,
       underline: {
           "&&&:before": {
           color: "white"
@@ -70,7 +71,7 @@ const useStyles = makeStyles( (theme) => ({
           },
       },
   Button:{
-      marginLeft:-15,
+      marginLeft:10,
       marginRight: 10,
       background: 'grey',
       border: 0,
@@ -99,7 +100,7 @@ const useStyles = makeStyles( (theme) => ({
       
   },
   textField: {
-    marginLeft:-15,
+    marginLeft:10,
     marginRight: 10,
     width:350,
     paddingTop: 10,
@@ -192,10 +193,7 @@ export default function InsertIncome(props){
         setOpeni(true);
         console.log(openi);
       }
-      // const handleChange4 = event => {
-      //   setCatname(event.target.value);
-      // }
-
+    
       const  handleSubmit = event => {
     
         event.preventDefault();
@@ -238,7 +236,7 @@ export default function InsertIncome(props){
                   <form onSubmit={handleSubmit}  >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style={{ marginLeft: -15}}> 
+                      <label className="labelclass" style={{ marginLeft: 10}}> 
                       Date            
                               <TextField
                               onChange={handleChange1}
@@ -248,7 +246,7 @@ export default function InsertIncome(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <CalendarTodayIcon style={{ fontSize: 25, paddingLeft:80 }}  />
+                              <Icon name='calendar outline' style={{ fontSize: 20, paddingLeft:75 }}  />
                       </label>
           
                       {/* Item Field */}

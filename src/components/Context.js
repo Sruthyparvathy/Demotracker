@@ -8,10 +8,10 @@ const UserProvider = (props) => {
  const [monthval, setMonthval] = useState(new Date().getMonth()+1);
  const [yearval, setYearval] = useState(new Date().getFullYear());
  const [year, setYear] = useState(new Date().getFullYear());
- const[catName,setCatname] = useState('');
- const[selex,setSelex] = useState('');
- const[opend,setOpend] = useState(false);
- const[openi,setOpeni] = useState(false);
+ const[catName, setCatname] = useState('');
+ const[selex, setSelex] = useState('');
+ const[opend, setOpend] = useState(false);    //open expense category drawer
+ const[openi, setOpeni] = useState(false);    //open incomecategory drawer
 
 
  return (
