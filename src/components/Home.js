@@ -9,13 +9,26 @@ import ExpenseCategory from './ExpenseCategory';
 import IncomeCategory from './IncomeCategory';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Icon } from 'semantic-ui-react'
-import {browserHistory} from 'react-router';
+ import {browserHistory} from 'react-router';
+// import { createHashHistory } from 'history';
+// export const history = createHashHistory()
 
 class Home extends Component{
+  constructor(props){
+    super(props)
+    this.state={open:true}
+  }
+  
 
   onClicklogout = () => {
-  browserHistory.push("/Login");
- 
+ browserHistory.push("/Login");
+  // this.props.history.push({
+  //   pathname: "\Login " ,
+  //   state: {
+  //     logged:   "true",
+  //   },
+  // })
+//  this.props.callback(this.state.open);
   
 
   };
@@ -37,18 +50,14 @@ class Home extends Component{
       
        <div className="split1 right1"> 
       
-        <div  className = "row">  
-       
-       <div className = "settings" > <SettingsIcon style={{marginTop:"25px",marginLeft:"-10px"}} /> </div> 
-         <div className = "header"> {this.props.params.name}  </div>
-        <div className = "exit"> <Icon name='sign-out' size='large' style={{color:"#9370DB",marginTop:"25px",marginLeft:"-10px"}} 
-                                  onClick = {this.onClicklogout}/>
-                            
-         </div>
-          </div>
+      <div  className = "rowheader" style={{width:"100%"}}>  
+     <div className = "settings" style={{width:"10%"}}> <SettingsIcon /> </div> 
+      <div className = "header" style={{width:"80%"}}> {this.props.params.name}  </div>
+      <div className = "exit" style={{width:"10%"}}> <Icon name='sign-out' size='large' style={{color:"#9370DB"}} 
+                                  onClick = {this.onClicklogout}/> </div>
+      </div>
          
-               
-        <CustomizedTabs  message = {this.props.params.id}/> </div> 
+         <CustomizedTabs  message = {this.props.params.id}/> </div> 
         </UserProvider>
        </div> 
   

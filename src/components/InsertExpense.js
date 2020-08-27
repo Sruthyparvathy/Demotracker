@@ -28,9 +28,8 @@ const useStyles = makeStyles( (theme) => (
   },
   datepickerx:{
   
-      width: 135,
-     // paddingTop:-200,
-    marginLeft:75,
+      width: "35%",
+      marginLeft:"20%",
       underline: {
           "&&&:before": {
           color: "white"
@@ -74,14 +73,14 @@ const useStyles = makeStyles( (theme) => (
           },
       },
   Button:{
-    marginLeft: 10,
+      marginLeft: "1%",
       background: 'grey',
       border: 0,
       borderRadius: 3,
       color: "white",
-      width:350,
-      height: 50,
-      marginTop: 25,
+      width:"90%",
+      padding:"3%",
+      marginTop: "7%",
       textTransform: 'none',
       backgroundColor: '#37364b',
       borderColor: '#007bff',
@@ -103,11 +102,11 @@ const useStyles = makeStyles( (theme) => (
       
   },
   textField: {
-      marginLeft: 10,
-      marginRight: 10,
-      width: 350,
-      paddingTop: 10,
-      marginTop: 10,
+      marginLeft:"1%",
+      marginRight: "1%",
+      width: "90%",
+      paddingTop: "1%",
+      marginTop: "4%",
      
       '& .MuiInput-input':{ color: "white"},
       multilineColor:{
@@ -176,7 +175,7 @@ export default function InsertExpense(props){
     const[item,setItem]=useState('');
     const[amount,setAmount]=useState('');
     const[open,setOpen]=useState(false);
-    const {opend,setOpend,selex,setSelex,catName,setCatname,setTransactionState} = useContext(UserContext);
+    const {opend,setOpend,selex,setSelex,ecatName,setEcatname,setTransactionState} = useContext(UserContext);
    
 
    const handleClose = () => {
@@ -218,7 +217,7 @@ export default function InsertExpense(props){
           setAmount('');
           setItem('');
           setSelex('');
-          setCatname('');
+          setEcatname('');
           setDate(formatedDate); 
           setTransactionState(true);} 
           fetchData();
@@ -233,7 +232,7 @@ export default function InsertExpense(props){
                   <form onSubmit={handleSubmit} >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style = {{  marginLeft: 10,paddingTop:-100,marginTop:500}} > 
+                      <label className="labelclass" style = {{  marginLeft: "1%"}} > 
                                  Date
                               <TextField
                               onChange={handleChange1}
@@ -243,7 +242,7 @@ export default function InsertExpense(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <Icon name='calendar outline' style={{fontSize: 20,paddingLeft:85}}  />
+                              <Icon name='calendar outline' style={{fontSize: 20,paddingLeft:"20%"}}  />
                       </label>
           
                       {/* Item Field */}
@@ -273,7 +272,7 @@ export default function InsertExpense(props){
                       {/* Category Field */}
            <TextField label="Category" name='category' id='category' autoComplete="off"
             required InputLabelProps={{required:false}}
-            value={catName}          
+            value={ecatName}          
             className={classes.textField} onClick={handleOpend}  />
           
                       {/* Submit button */}

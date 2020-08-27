@@ -15,7 +15,7 @@ class Cards extends Component{
       return(      
            <div> 
                 {items.map((item) =>( 
-                    <Card key = {item.index} style={{width:"98%",paddingTop:"5px", paddingBottom:"5px", marginBottom:"10px"}}>
+                    <Card key = {item.index} style={{width:"98%",paddingTop:"1%", paddingBottom:"1%", marginBottom:"1%"}}>
                         
                             <mat-card  class="card-container" style={{color:this.type_check(item.TYPE) }} >
                                 <mat-card-title class="card-container-right" style={{font: "regular 18px/37px source sans pro" }}>{item.DATE}</mat-card-title>

@@ -4,6 +4,12 @@ import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import FormDialog from '../components/ECategory';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import './card.css';
 import * as API from '../constants/Api';
 import axios from 'axios';
@@ -35,7 +41,7 @@ const useStyles = makeStyles( (theme) => ({
     textAlign:"center",
     position:"justify",
     color:"#F35B8C",
-    padding:"10px",
+    // padding:"10px",
     height:"95px",width:"95px",
     marginBottom:"2px",marginTop:"1px",
     backgroundColor:"#ffcce6"
@@ -43,23 +49,25 @@ const useStyles = makeStyles( (theme) => ({
   },
 }));
   
-export default  function  SelectCategory(props) {
-  const [count,setCount] = useState(1);
-  const {opend,setOpend,setCatname,setSelex} = useContext(UserContext);
+export default  function ExpenseCategory(props) {
+
+  const [openNew,setOpennew] = useState(false);
+  const [ttype,setTtype] = useState('');
+  const [newCat,setNewcat] = useState(false);
+  const {opend,setOpend,setEcatname,setSelex} = useContext(UserContext);
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axios
       .get(API.CAT_LIST_EXPENSE,{ params: {userId:props.message}})
       .then(response  => setData(response.data));
-  },[count,props.message]);
+  },[newCat]);
 
-  const addCategory = () =>{
-    setCount(count+1);
-  }
+
 
  const onPaperClick = (text) =>{
     console.log({text});
- setCatname(text.CATEGORY_NAME);
+ setEcatname(text.CATEGORY_NAME);
  setSelex(text.ID);
  setOpend(false); 
   }
@@ -70,7 +78,36 @@ export default  function  SelectCategory(props) {
 const handleClose = () =>{
     setOpend(false);
 }
-  
+  ///////////////////////////////////////
+
+const handleClickOpen = () =>{
+setOpennew(true);
+};
+
+const handleClosenew = () => {
+  setOpennew(false)
+};
+
+const handleChange = event => {
+  setTtype(event.target.value);
+}
+
+// save new category
+
+const handleinsert = event => {
+  event.preventDefault();
+  console.log("dfdf");
+  axios.post(API.ADD_EXPENSE_CATEGORY,JSON.stringify({
+    "categoryName": ttype,
+    "userId": props.message,
+  }), {headers: { "Content-Type":"application/json"}})    
+  .then(res => {
+    console.log("res="+res);
+   setOpennew(false);
+   setNewcat(true);
+    
+  })
+}
 // display category names
   const list = (
     <div>
@@ -88,7 +125,43 @@ const handleClose = () =>{
                 </Paper>
             </Grid>
           ))}
-          <FormDialog message={props.message} onNewChange = {addCategory}/>
+        
+      <Button style={{marginLeft:"2px",paddingTop:"10px",textAlign:"center",position:"justify",height:"95px",width:"95px",marginTop:"1px",marginBottom:"2px", color:"#F35B8C",backgroundColor:"#ffcce6",textTransform:"none"}} onClick={handleClickOpen}>
+      <Typography variant='body2' display="block"> +New </Typography>
+      </Button>
+      
+        <Dialog
+          open={openNew}
+          onClose={handleClosenew}
+          aria-labelledby="form-dialog-title"
+        >
+            
+            <form onSubmit={handleinsert}  >
+          
+          <DialogContent>
+          <DialogContentText style={{color:"#F35B8C"}}>
+              Category Name
+            </DialogContentText>
+          <TextField 
+             
+              autoFocus
+              required
+              margin="dense"
+              style={{color: "white"}}
+              id="name"
+              onChange={handleChange}
+              fullWidth
+            />
+        </DialogContent>
+        <DialogActions>
+            <Button onClick={handleClosenew} style={{color:"#F35B8C"}}>
+              Cancel
+            </Button>
+            <Button style={{color:"#F35B8C"}} type="submit">
+              Add
+            </Button>
+          </DialogActions></form>
+          </Dialog>   
         </Grid>
       </Grid>
      </Grid>

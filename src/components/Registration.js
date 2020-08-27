@@ -214,14 +214,14 @@ render() {
             </div>
             <div className='rightcontainer' >
             <h1 WebFont>DEX Expenses</h1>
-                <h2 style={{fontFamily:WebFont,fontSize:'18px',fontWeight:'normal'}}>Please register to create account.</h2>
+                <h2 style={{fontFamily:WebFont,fontSize:'100%',fontWeight:'normal'}}>Please register to create account.</h2>
                 <form onSubmit={this.handleSubmit} >
                 <Input 
                         type="text"
                         name="name"
                         placeholder="Name" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height: 30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height: '90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange1}
                         value={this.state.name}/>
@@ -231,7 +231,7 @@ render() {
                         name="emailid"
                         placeholder="Username" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height: 30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height: '90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange2}
                         value={this.state.emailid}/>
@@ -241,7 +241,7 @@ render() {
                         type="password"
                         placeholder="Password" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height:30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height:'90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange3}
                         value={this.state.password}/>
@@ -251,7 +251,7 @@ render() {
                         type="password"
                         placeholder="Confirm Password" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height:30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height:'90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange4}
                         value={this.state.confirmPassword}/>
@@ -260,16 +260,12 @@ render() {
                     <Button  variant="contained" WebFont color="primary" 
                     
                     type="submit"
-                    style={{backgroundColor: "#37364B", marginTop:10,width:445, height: 50,fontFamily:WebFont,fontSize:'18px',textTransform:'none'}} 
+                    style={{backgroundColor: "#37364B", marginTop:'10%',width:'90%', height:'10%',fontFamily:WebFont,fontSize:'100%',textTransform:'none'}} 
                     >
                        Sign Up
                        
                     </Button>
-                    
-                    {/* <div class="container signin" >
-                     <p> Already have an account? <a href="Login">Login</a>.</p>
-                    </div> */}
-                </form>
+                 </form>
                 </div>
         </div>
         

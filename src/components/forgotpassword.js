@@ -24,7 +24,6 @@ WebFont.load({
   var errormsg3='';
   var errormsg4='';
   var errormsg5='';
-  var errormsg6='';
   //class starts here
 export default class Registration extends Component{
     // constructers
@@ -41,8 +40,7 @@ export default class Registration extends Component{
         showError2: false,
         showError3: false,
         showError4: false,
-        showError5: false,
-        showError6:false
+        showError5: false
       }
     }
 
@@ -66,7 +64,6 @@ export default class Registration extends Component{
       //Function to handle submit an event
     handleSubmit = event => {
         event.preventDefault();
-        //var name=this.state.name;
         var emailid=this.state.emailid;
         var password=this.state.password;
         var confirmPassword=this.state.confirmPassword;
@@ -100,7 +97,7 @@ export default class Registration extends Component{
             
                errormsg4='Password must be strong!!!';
                    this.setState((prevState, props) => {
-                    return { showError4: true }
+                    return { showError3: true }
                      })
           }
           else{
@@ -109,7 +106,7 @@ export default class Registration extends Component{
             flag=1; 
             errormsg5='Passwords must be match!!!';
                    this.setState((prevState, props) => {
-                    return { showError5: true }
+                    return { showError4: true }
                      })
           }
         } 
@@ -135,9 +132,9 @@ export default class Registration extends Component{
           }
           if(response.data===0)
             {
-            errormsg6='Invalid Username!!!' ;
+            errormsg5='Invalid Username!!!' ;
             this.setState((prevState, props) => {
-              return { showError6: true }
+              return { showError5: true }
             
               
             })
@@ -146,10 +143,10 @@ export default class Registration extends Component{
         })  
             
             .catch(error => {
-             errormsg6='Password not updated!!! '  + error ;
+             errormsg5='Password not updated!!! '  + error ;
              this.setState((prevState, props) => {
              
-              return { showError6: true }
+              return { showError5: true }
 
                 })
                 
@@ -181,20 +178,15 @@ render() {
                 {this.state.showError4 && <div className="error-message">{errormsg4}</div>}        
             </div>
             <div>
-                {this.state.showError5 && <div className="error-message">{errormsg5}</div>}        
-            </div>
-            <div>
-                {this.state.showError6  && setTimeout(() => { browserHistory.push('/Login'); }, 2000) && <div className="error-message">{errormsg6} 
-                
+                {this.state.showError5  && setTimeout(() => { browserHistory.push('/Login'); }, 2000) && <div className="error-message">{errormsg5}                
             </div>} 
-             
             </div>
             <div>
                 {this.state.showError && setTimeout(() => { browserHistory.push('/Login'); }, 2000) && <div className="msg">{errormsg}</div>}        
             </div>
             <div className='rightcontainer' >
             <h1 WebFont>DEX Expenses</h1>
-                <h2 style={{fontFamily:WebFont,fontSize:'18px',fontWeight:'normal'}}>Forgot password</h2>
+                <h2 style={{fontFamily:WebFont,fontSize:'100%',fontWeight:'normal'}}>Forgot password</h2>
                 <form onSubmit={this.handleSubmit} >
  
                     <Input 
@@ -202,7 +194,7 @@ render() {
                         name="emailid"
                         placeholder="Username" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height: 30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height: '90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange2}
                         value={this.state.emailid}/>
@@ -212,7 +204,7 @@ render() {
                         type="password"
                         placeholder="New Password" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height:30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height:'90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange3}
                         value={this.state.password}/>
@@ -222,7 +214,7 @@ render() {
                         type="password"
                         placeholder="Confirm Password" 
                         inputProps={{ 'aria-label': 'description' }}
-                        style={{width: 445, height:30,fontFamily:WebFont,fontSize:'16px',fontWeight:'normal',textDecoration:'none'}} 
+                        style={{width: '90%', height:'90%',fontFamily:WebFont,fontSize:'100%',fontWeight:'normal',textDecoration:'none'}} 
                         onFocus={{border:"2px solid #37364B"}}
                         onChange={this.handleChange4}
                         value={this.state.confirmPassword}/>
@@ -232,7 +224,7 @@ render() {
                     <Button  variant="contained" WebFont color="primary" 
                     
                     type="submit"
-                    style={{backgroundColor: "#37364B", width:445, height: 50,fontFamily:WebFont,fontSize:'18px',textTransform:'none'}} 
+                    style={{backgroundColor: "#37364B",marginTop:'10%', width:'90%', height: '90%',fontFamily:WebFont,fontSize:'100%',textTransform:'none'}} 
                     >
                        Submit
                        

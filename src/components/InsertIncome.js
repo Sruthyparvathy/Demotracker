@@ -26,8 +26,8 @@ const useStyles = makeStyles( (theme) => ({
       height: "100%",
   },
   datepickerx:{
-      width: 150,
-      marginLeft: 70,
+      width: "35%",
+      marginLeft: "20%",
       underline: {
           "&&&:before": {
           color: "white"
@@ -71,15 +71,15 @@ const useStyles = makeStyles( (theme) => ({
           },
       },
   Button:{
-      marginLeft:10,
-      marginRight: 10,
+      marginLeft:"1%",
+      marginRight: "1%",
       background: 'grey',
       border: 0,
       borderRadius: 3,
       color: "white",
-      width:350,
-      height: 50,
-      marginTop: 25,
+      padding:"3%",
+      width:"90%",
+      marginTop:"7%",
       textTransform: 'none',
       backgroundColor: '#37364b',
       borderColor: '#007bff',
@@ -100,11 +100,11 @@ const useStyles = makeStyles( (theme) => ({
       
   },
   textField: {
-    marginLeft:10,
-    marginRight: 10,
-    width:350,
-    paddingTop: 10,
-    marginTop: 10,
+    marginLeft:"1%",
+    marginRight: "1%",
+    width:"90%",
+    paddingTop: "1%",
+    marginTop: "4%",
     color: "white",
     '& .MuiInput-input':{ color: "white"},
     multilineColor:{
@@ -169,7 +169,7 @@ export default function InsertIncome(props){
     const[item,setItem]=useState('');
     const[amount,setAmount]=useState('');
     const[open,setOpen]=useState(false);
-    const {openi,setOpeni,selex,setSelex,catName,setCatname,setTransactionState}=useContext(UserContext);
+    const {openi,setOpeni,selex,setSelex,icatName,setIcatname,setTransactionState}=useContext(UserContext);
    
 
    const handleClose = () => {
@@ -212,7 +212,7 @@ export default function InsertIncome(props){
           setAmount('');
           setItem('');
           setSelex('');
-          setCatname('');
+          setIcatname('');
           setDate(formatedDate); 
           setTransactionState(true);} 
           fetchData();
@@ -236,7 +236,7 @@ export default function InsertIncome(props){
                   <form onSubmit={handleSubmit}  >
                  
                       {/* Datepicker */}
-                      <label className="labelclass" style={{ marginLeft: 10}}> 
+                      <label className="labelclass" style={{ marginLeft: "1%"}}> 
                       Date            
                               <TextField
                               onChange={handleChange1}
@@ -246,7 +246,7 @@ export default function InsertIncome(props){
                               className={classes.datepickerx}
                               required                    
                               />
-                              <Icon name='calendar outline' style={{ fontSize: 20, paddingLeft:75 }}  />
+                              <Icon name='calendar outline' style={{ fontSize: 20, paddingLeft:"20%" }}  />
                       </label>
           
                       {/* Item Field */}
@@ -277,7 +277,7 @@ export default function InsertIncome(props){
 
             <TextField label="Category" name='category' id='category' autoComplete="off"
             required InputLabelProps={{required:false}}
-            value={catName}          
+            value={icatName}          
             className={classes.textField} onClick={handleOpeni}  />
                       
                       {/* Submit button */}
